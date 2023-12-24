@@ -16,7 +16,7 @@ try {
     exit('DB Connection Error:' . $e->getMessage());
 }
 
-// クエリを作成する
+// クエリを作成
 $stmt = $pdo->prepare(
     'INSERT INTO 
     site  ( id, siteName, client, startDate, completionDate, creationDate, modificationDate)

@@ -22,7 +22,7 @@
         </nav>
     </header>
 
-    <!-- method, action, 各inputのnameを確認してください。  -->
+    <!-- method, action, 各inputのnameを確認してください。 -->
     <form method="POST" action="insert.php">
         <div class="jumbotron">
             <fieldset>

@@ -2,7 +2,7 @@
 $id = $_GET['id'];
 
 try {
-    $db_name = 'dedurakanri';
+    $db_name = 'dedura';
     $db_id   = 'root';
     $db_pw   = '';
     $db_host = 'localhost';

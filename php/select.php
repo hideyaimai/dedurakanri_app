@@ -1,21 +1,16 @@
 <?php
 
-// データベースに接続する
-try {
-    $db_name = 'dedura';
-    $db_id   = 'root';
-    $db_pw   = '';
-    $db_host = 'localhost';
-    $pdo     = new PDO('mysql:dbname=' . $db_name . ';charset=utf8;host=' . $db_host, $db_id, $db_pw);
-} catch (PDOException $e) {
-    exit('DB Connection Error:' . $e->getMessage());
-}
+// データベースに接続
+require_once ('funcs.php');
+$pdo = connectToDatabase();
+
 
 // SQL
 $stmt = $pdo->prepare(
     'SELECT * 
     FROM site;'
 );
+
 
 // 関数の実行をする
 $status = $stmt->execute();
@@ -24,8 +19,7 @@ $status = $stmt->execute();
 $view ="";
 
 if($status === false){
-    $error = $stmt->errorInfo();
-    exit("ErrorQuery:".$error[2]);
+    sqlError($stmt);
 }else{
     while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
         $view .="<p>";
@@ -53,7 +47,7 @@ if($status === false){
 </head>
 <body>
     <div class="log"><?= $view?></div>
-    <form action="detail.php" method="post">
+    <form action="index.php" method="post">
         <input type="submit" name="continue" value="追加で登録">
     </form>
 

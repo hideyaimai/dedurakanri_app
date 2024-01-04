@@ -1,15 +1,12 @@
 <?php
+
+
 $id = $_GET['id'];
 
-try {
-    $db_name = 'dedura';
-    $db_id   = 'root';
-    $db_pw   = '';
-    $db_host = 'localhost';
-    $pdo     = new PDO('mysql:dbname=' . $db_name . ';charset=utf8;host=' . $db_host, $db_id, $db_pw);
-} catch (PDOException $e) {
-    exit('DB Connection Error:' . $e->getMessage());
-}
+
+// データベースに接続
+require_once ('funcs.php');
+$pdo = connectToDatabase();
 
 
 //SQL作成
@@ -17,8 +14,10 @@ $stmt = $pdo->prepare(
     'SELECT * FROM site WHERE id = :id;');
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 
+
 // 関数の実行
 $status = $stmt->execute();
+
 
 //表示
 $view = '';

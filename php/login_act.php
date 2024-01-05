@@ -29,7 +29,7 @@ var_dump($val);
 if( $val['id'] != ''){
     $_SESSION['chk_ssid']  = session_id();
     $_SESSION['userName'] = $val['userName'];
-    header('Location: select.php');
+    header('Location: index.php');
 }else{
     header('Location: login.php');
 }

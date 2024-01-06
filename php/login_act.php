@@ -24,10 +24,9 @@ if($status === false){
 
 $val = $stmt->fetch();
 
-var_dump($val);
 
 if( $val['id'] != ''){
-    $_SESSION['chk_ssid']  = session_id();
+    $_SESSION['chk_ssid'] = session_id();
     $_SESSION['userName'] = $val['userName'];
     header('Location: index.php');
 }else{

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ログイン画面</title>
 </head>
+
 <body>
     <form method="POST" action="login_act.php">
         <div class="jumbotron">

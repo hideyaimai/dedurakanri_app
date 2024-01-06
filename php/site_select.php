@@ -1,8 +1,14 @@
 <?php
 
+session_start();
+
 // データベースに接続
 require_once ('funcs.php');
 $pdo = connectToDatabase();
+
+
+// session_idの確認と再発行
+loginCheck();
 
 
 // SQL
@@ -23,13 +29,14 @@ if($status === false){
 }else{
     while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
         $view .="<p>";
-        $view .= '<a href="detail.php?id=' . $result['id'] . '">';
+        $view .= '<a href="site_detail.php?id=' . $result['id'] . '">';
         $view .= $result["siteName"] . "<br>";
-        $view .= $result["client"] . "<br>";
         $view .= '</a>';
-        $view .= $result["startDate"] . "<br>";
+        $view .= $result["client"] . "<br>";
+        $view .= $result["startDate"];
+        $view .= ' 〜 ';
         $view .= $result["completionDate"] . "<br>";
-        $view .= '<a href="delete.php?id=' . $result['id'] . '">';
+        $view .= '<a href="site_delete.php?id=' . $result['id'] . '">';
         $view .= "【削除】";
         $view .= '</a>';
         $view .="</p>";

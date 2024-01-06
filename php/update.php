@@ -10,7 +10,7 @@ $id             = $_POST["id"]            ;
 
 // データ接続
 require_once('funcs.php');
-connectToDatabase();
+$pdo = connectToDatabase();
 
 
 // SQL

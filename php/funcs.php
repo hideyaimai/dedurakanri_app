@@ -1,6 +1,5 @@
 <?php
 
-
 // データベースと繋げる
 function connectToDatabase(){
     try {
@@ -16,7 +15,6 @@ function connectToDatabase(){
 }
 
 
-
 // db変更エラー時
 function sqlError($stmt){
     $error = $stmt->errorInfo();
@@ -24,13 +22,11 @@ function sqlError($stmt){
 }
 
 
-
 //リダイレクト
 function redirect($fileName){
     header('Location: ' . $fileName);
     exit();
 }
-
 
 
 // ログインチェク
@@ -42,5 +38,7 @@ function loginCheck(){
         $_SESSION["chk_ssid"] = session_id();
     };
 }
+
+
 
 ?>
